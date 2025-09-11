@@ -8,7 +8,47 @@
 
 <body>
 	<!-- the entire body must be written by student -->
+	
     <script type="text/javascript" src="./script.js">
+		class Animal {
+    constructor(species) {
+        this._species = species; // Store species
+    }
+
+    get species() {
+        return this._species; // Getter for species
+    }
+
+    makeSound() {
+        console.log(`The ${this.species} makes a sound`); // Log sound
+    }
+}
+
+class Cat extends Animal {
+    purr() {
+        console.log("purr"); // Log purr sound
+    }
+}
+
+class Dog extends Animal {
+    bark() {
+        console.log("woof"); // Log bark sound
+    }
+}
+
+// Do not change the code below this line
+const myCat = new Cat("Siamese");
+myCat.makeSound(); // Should print: The Siamese makes a sound
+myCat.purr(); // Should print: purr
+
+const myDog = new Dog("Golden Retriever");
+myDog.makeSound(); // Should print: The Golden Retriever makes a sound
+myDog.bark(); // Should print: woof
+
+// Exposing classes to global scope for Cypress testing
+window.Animal = Animal;
+window.Dog = Dog;
+window.Cat = Cat;
 </script>
 
 </body>
